@@ -42,7 +42,7 @@
                                 </li>
                             ";
                         }
-                    print "</div>"    
+                    print "</ul>"    
                 ?>
                 </div>
             </div>

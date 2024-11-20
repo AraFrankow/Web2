@@ -3,7 +3,7 @@
     require_once("../componentes/include/header.php");
 ?>
     <div class="container text-center p-5">
-            <div class="row abajo">
+            <div class="row poco">
               <div class="col-12 col-md-6 mejor">
                 <h2 class="letra">Habitación 1</h2>
                 <p class="letra">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores eveniet vero odit nesciunt temporibus? Iste blanditiis vel inventore laborum sequi odio saepe deleniti quia aspernatur, voluptatibus quidem? Dignissimos, in quis.</p>
@@ -13,7 +13,7 @@
               </div>
             </div>
             
-            <div class="row abajo">
+            <div class="row poco">
                 <div class="col-12 col-md-6">
                   <img src="../img/img2.jpg" alt="habitación 2" class="w-100">
                 </div>

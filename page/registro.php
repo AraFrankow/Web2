@@ -2,7 +2,7 @@
 require_once("../componentes/include/header.php");
 ?>
 <section class="row">
-    <article class="col-6">
+    <article class="col-5 mover">
         <h2 class="letra">Registro</h2>
         <?php
             if(isset($_GET['pass'])){
@@ -48,7 +48,7 @@ require_once("../componentes/include/header.php");
             </div>
         </form>
     </article>
-    <article class="col-6">
+    <article class="col-5 mover">
         <h2 class="letra">Login</h2>
         <?php
             if(isset($_GET['regis'])){
