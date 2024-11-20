@@ -13,6 +13,9 @@ include_once("../componentes/conf/conf.php");
 <body>
     <header>
         <h1>Crear - Admin</h1>
+        <div>
+            <a href="../commponentes/security/logout.php">Cerrar Sesión</a>
+        </div>
     </header>
     <main>
         <section>

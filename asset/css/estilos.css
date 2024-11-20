@@ -1,0 +1,20 @@
+.abajo{
+    padding-bottom: 50px;
+}
+.mejor{
+    padding-top: 10%;
+}
+body{
+   background-color: #1C1C1C;
+   overflow-x: hidden; 
+}
+.color{
+    background: linear-gradient(90deg, #002B5B, #1C1C1C);
+}
+
+.letra{
+    color: white;
+}
+.caja{
+    background-color: white;
+}

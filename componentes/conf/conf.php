@@ -16,7 +16,7 @@ $con = mysqli_connect(servidor,usuario,clave,base_datos,puerto);
 if(!$con){
     print "<h1>Error</h1>";
 }else{
-    print "<h1>Exito✔</h1>";
+    print "<!--h1>Exito✔</h1-->";
 }
 
 

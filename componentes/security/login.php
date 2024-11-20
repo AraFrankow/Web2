@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../conf/conf.php");
 if ($con!=NULL) {
     $usuario;
@@ -15,12 +16,19 @@ if ($con!=NULL) {
             $consulta_dos = "SELECT * FROM `usuario` WHERE `email` = '$usuario' AND `contrasenia`=MD5('$clave') ";
             $resultado_dos = mysqli_query($con,$consulta_dos);
             if(mysqli_num_rows($resultado_dos) > 0){
-                print "Te logueaste correctamente";
+                $datos = mysqli_fetch_array($resultado_dos);
+                if ($datos['fk_rol'] == 1) {
+                    $_SESSION = $datos;
+                    header("Location: ../../admin/index.php");
+                }else{
+                    $_SESSION = $datos;
+                    header("Location: ../../user/panel.php");
+                }
             }else{
-                header("Location: ../../page/inicio.php?cont=no");
+                header("Location: ../../page/registro.php?cont=no");
             }
         }else{
-            header("Location: ../../page/inicio.php?regis=no");
+            header("Location: ../../page/registro.php?regis=no");
         }
     }
 }

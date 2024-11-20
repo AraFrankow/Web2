@@ -1,78 +1,38 @@
-<?php 
-require_once("../componentes/conf/conf.php");
-?>
-<h2>Registro</h2>
 <?php
-    if(isset($_GET['pass'])){
-        print "<p style=color:red >Las contraseñas no coinciden</p>";
-
-    }
-    if(isset($_GET['mail'])){
-        print "<p style=color:red >El correo ya esta registrado!!</p>";
-
-    }
-    if(isset($_GET['log'])){
-        print "<p style=color:green >Te podes loguear</p>";
-
-    }
+    require_once("../componentes/conf/conf.php");
+    require_once("../componentes/include/header.php");
 ?>
-<form action="../componentes/security/alta_usr.php" method="post" >
-    <div>
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" type="text" required  >
-    </div>
-    <div>
-        <label for="apellido">Apellido</label>
-        <input id="apellido" name="apellido" type="text" required  >
-    </div>
-    <div>
-        <label for="correo">Correo</label>
-        <input id="correo" name="correo" type="email" required >
-    </div>
-    <div>
-        <label for="tel">Telefono</label>
-        <input id="tel" name="tel" type="tel" >
-    </div>
-    <div>
-        <label for="contra_uno">Contraseña</label>
-        <input id="contra_uno" name="contra_uno" type="password" required >
-    </div>
-    <div>
-        <label for="contra_dos">Repetir Contraseña</label>
-        <input id="contra_dos" name="contra_dos" type="password" required >
-    </div>
-    <div>
-        <input type="submit" value="Registarme">
-    </div>
-
-
-</form>
-<h2>Login</h2>
-
+    <div class="container text-center p-5">
+            <div class="row abajo">
+              <div class="col-12 col-md-6 mejor">
+                <h2 class="letra">Habitación 1</h2>
+                <p class="letra">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores eveniet vero odit nesciunt temporibus? Iste blanditiis vel inventore laborum sequi odio saepe deleniti quia aspernatur, voluptatibus quidem? Dignissimos, in quis.</p>
+              </div>
+              <div class="col-12 col-md-6">
+                <img src="../img/img1.png" alt="habitación 1" class="w-100">
+              </div>
+            </div>
+            
+            <div class="row abajo">
+                <div class="col-12 col-md-6">
+                  <img src="../img/img2.jpg" alt="habitación 2" class="w-100">
+                </div>
+                <div class="col-12 col-md-6 mejor">
+                  <h2 class="letra">Habitación 2</h2>
+                  <p class="letra">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae obcaecati perspiciatis qui, atque quam nulla praesentium totam, repellendus ipsum quos, commodi rerum architecto? Consequatur eum enim rerum consequuntur vel repellat.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 col-md-6 mejor">
+                  <h2 class="letra">Habitación 3</h2>
+                  <p class="letra">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime obcaecati minus rem nihil architecto odio dolor laudantium provident. Recusandae ex nemo dicta ipsum quaerat fugit in molestiae maiores, id quo.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                  <img src="../img/img3.jpg" alt="habitación 3" class="w-100">
+                </div>
+            </div>
+        </div>
 <?php
-    if(isset($_GET['regis'])){
-        print "<p style=color:red >No estas registrado</p>";
-
-    }
-    if(isset($_GET['cont'])){
-        print "<p style=color:red >Usuario y/o Contraseña incorrectos</p>";
-
-    }
+    include_once("../componentes/include/footer.php");
 ?>
-
-<form action="../componentes/security/login.php" method="post" >
-    <div>
-        <label for="usuario">Correo</label>
-        <input id="usuario" name="usuario" type="email" required >
-
-    </div>
-    <div>
-        <label for="clave">Contraseña</label>
-        <input id="clave" name="clave" type="password" required >
-    </div>
-    <div>
-        <input type="submit" value="Ingresar">
-    </div>
-
-
-</form>

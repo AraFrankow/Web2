@@ -23,17 +23,17 @@ if($con!=NULL){
             $resultado = mysqli_query($con,$consulta);
 
             if(mysqli_num_rows($resultado) > 0){
-                header("Location: ../../page/inicio.php?mail=no ");
+                header("Location: ../../page/registro.php?mail=no ");
             }else{
                 $insertar ="INSERT INTO `usuario`(`nombre`, `apellido`, `email`, `telefono`, `contrasenia`, `fk_Rol`) VALUES ('$nombre','$apellido','$correo','$tel',MD5('$contra_uno'),'2')";
 
                 mysqli_query($con,$insertar);
-                header("Location: ../../page/inicio.php?log=si ");
+                header("Location: ../../page/registro.php?log=si ");
 
             }
 
         }else{
-            header("Location: ../../page/inicio.php?pass=no ");
+            header("Location: ../../page/registro.php?pass=no ");
         }
 
     }
