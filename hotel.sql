@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2024 a las 01:13:59
+-- Tiempo de generación: 21-11-2024 a las 03:11:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -50,6 +50,7 @@ CREATE TABLE `habitacion` (
   `id_Habitacion` int(11) NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `precio` double NOT NULL,
+  `media` varchar(60) DEFAULT NULL,
   `fk_Estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -57,10 +58,9 @@ CREATE TABLE `habitacion` (
 -- Volcado de datos para la tabla `habitacion`
 --
 
-INSERT INTO `habitacion` (`id_Habitacion`, `tipo`, `precio`, `fk_Estado`) VALUES
-(1, 'Simple', 600, 2),
-(2, 'Simple deluxe', 900, 1),
-(3, 'Deluxe', 1000, 1);
+INSERT INTO `habitacion` (`id_Habitacion`, `tipo`, `precio`, `media`, `fk_Estado`) VALUES
+(2, 'Simple deluxe', 600, '1732154297.jpg', 1),
+(3, 'Simple', 900, '1732154310.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -79,8 +79,8 @@ CREATE TABLE `metodo` (
 
 INSERT INTO `metodo` (`id_Metodo`, `metodo_pago`) VALUES
 (1, 'efectivo'),
-(2, 'transferencia'),
-(3, 'tarjeta');
+(2, 'tarjeta'),
+(3, 'transferencia');
 
 -- --------------------------------------------------------
 
@@ -114,7 +114,8 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_Reserva`, `fecha_entrada`, `fecha_salida`, `fk_Usuario`, `fk_Habitacion`) VALUES
-(1, '2024-11-21', '2024-11-28', 1, 2);
+(1, '2024-11-22', '2024-11-26', 1, 3),
+(2, '2024-11-22', '2024-11-27', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_Usuario`, `nombre`, `apellido`, `email`, `telefono`, `contrasenia`, `fk_Rol`) VALUES
-(1, 'Arabela', 'Frankow', 'ara@gmail.com', 0, '407db7ec7552bea69b37c56e612d434c', 1),
+(1, 'Arabela', 'Frankow', 'ara@gmail.com', 0, '407db7ec7552bea69b37c56e612d434c', 2),
 (2, 'Juan', 'kow', 'juan@gmail.com', 0, 'b081e8e3db4106215ff8fe47c9026104', 2);
 
 --
@@ -238,7 +239,7 @@ ALTER TABLE `pagos`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_Reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_Reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`

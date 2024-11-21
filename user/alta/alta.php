@@ -10,7 +10,7 @@
         $entrada = mysqli_real_escape_string($con, $_POST['entrada'] );
         $salida = mysqli_real_escape_string($con, $_POST['salida'] );
         $habitacion = mysqli_real_escape_string($con, $_POST['habitacion'] );
-        $usuario = mysqli_real_escape_string($con, $_POST['usuario'] );
+        $usuario = mysqli_real_escape_string($con, $_POST['usuario'] );        
 
         $consulta = " INSERT INTO `reservas`(`fecha_entrada`, `fecha_salida`, `fk_Usuario`, `fk_Habitacion`) VALUES ('$entrada','$salida','$usuario','$habitacion') ";
         mysqli_query($con,$consulta);

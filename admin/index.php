@@ -34,7 +34,7 @@ include_once("../componentes/conf/conf.php");
         <section class="row abajo">
             <article class="col-5 mover">
             <h2 class="letra">Crear Habitación</h2>
-            <form action="alta/alta_cat.php" method="get" >
+            <form action="alta/alta_cat.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="habitacion" class="form-label letra">Tipo de habitación</label>
                     <input id="habitacion"  type="text"  name="habitacion" class="form-control">
@@ -48,6 +48,10 @@ include_once("../componentes/conf/conf.php");
                     <input id="estado"  type="number"  name="estado" class="form-control">
                 </div>
                 <div>
+                    <label for="media" class="form-label letra">Imagen</label>
+                    <input id="media" name="media" type="file" class="form-control">
+                </div>
+                <div>
                     <input type="submit" value="Cargar" class="btn btn-primary">
                 </div>
             </form>
@@ -59,6 +63,7 @@ include_once("../componentes/conf/conf.php");
                         <th class="letra">Habitación</th>
                         <th class="letra">Precio</th>
                         <th class="letra">Estado</th>
+                        <th class="letra">Imagen</th>
                         <th class="letra">Modificar</th>
                         <th class="letra">Eliminar</th>
                     </thead>
@@ -75,6 +80,11 @@ include_once("../componentes/conf/conf.php");
                                         <td class='letra'>$fila[tipo]</td>
                                         <td class='letra'>$fila[precio]</td>
                                         <td class='letra'>$fila[fk_Estado]</td>
+                                        <td>
+                                            <figure class=arreg >
+                                                <img src=../img/$fila[media] >
+                                            </figure>
+                                        </td>
                                         <td class='letra'><a href=modi/mod_cat.php?id=$fila[id_Habitacion]  >Modificar</a></td>
                                         <td class='letra'><a href=baja/eliminar_cat.php?id=$fila[id_Habitacion]  >Eliminar</a></td>
                                         

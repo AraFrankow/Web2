@@ -22,11 +22,11 @@ table {
     width: 100%;
 }
 th, td {
-    padding: 10px;
+    padding: 20px;
     border-bottom: 1px solid #ddd;
 }
 tr {
-    height: 25px;
+    height: 30px;
 }
 caption{
     caption-side: top;
@@ -38,5 +38,14 @@ caption{
     margin-bottom: 12.5%;
 }
 .mover{
+    margin: auto;
+}
+.arreg{
+    text-align: center;
+}
+.arreg img{
+    max-width: 100px;
+    height: auto;
+    display: block;
     margin: auto;
 }
