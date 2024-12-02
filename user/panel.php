@@ -50,35 +50,42 @@ if(!$_SESSION['id_Usuario']){
             <input type="submit" value="Elegir habitacion" class="btn btn-primary">
         </div>
     </form>
+        
     <?php
-        $consulta = "SELECT * FROM reservas";
-        $consulta_dos = "SELECT * FROM usuario";
-        $consulta_tres = "SELECT * FROM metodo";
+    $consulta_reservas = "SELECT * FROM reservas";
+    $resultado_reservas = mysqli_query($con, $consulta_reservas);
+    $consulta_habitacion = "SELECT * FROM habitacion";
+    $resultado_habitacion = mysqli_query($con, $consulta_habitacion);
+    $fila_habitacion = mysqli_fetch_array($resultado_habitacion);
 
-        $resultado =  mysqli_query($con,$consulta);
-        $resultado_dos =  mysqli_query($con,$consulta_dos);
+    print "<div class='container'>";
+    print "<section class='row'>";
+
+    while ($fila_reserva = mysqli_fetch_array($resultado_reservas)) {
+        $consulta_usuario = "SELECT * FROM usuario WHERE `id_Usuario` = {$fila_reserva['fk_Usuario']}";
+        $resultado_usuario = mysqli_query($con, $consulta_usuario);
+        $fila_usuario = mysqli_fetch_array($resultado_usuario);
+
+        $consulta_tres = "SELECT * FROM metodo WHERE `id_Metodo` = {$fila_habitacion['tipo']}";
         $resultado_tres =  mysqli_query($con,$consulta_tres);
-        print "<div class=container >";
-        print "<section class= row>";
-        while($fila = mysqli_fetch_array($resultado) AND $fila2 = mysqli_fetch_array($resultado_dos) AND $fila3 = mysqli_fetch_array($resultado_tres)){
-            print "
-                <article class='col-2'>
-                    <div class='card '>
-                        <div class='card-body'>
-                            <h5 class='card-title'>Habitación $fila[fk_Habitacion]</h5>
-                            <h6 class='card-subtitle mb-2 text-body-secondary'>Usuario: $fila[fk_Usuario]</h6>
-                            <p class='card-text'>Entrada al hotel: $fila[fecha_entrada]</p>
-                            <p class='card-text'>Salida del hotel: $fila[fecha_salida]</p>
-                            <p class='card-text'>Metodo de pago: $fila3[metodo_pago]</p>
-                        </div>
-                    </div>
-                </article>
-            
-            ";
+        $fila_pago = mysqli_fetch_array($resultado_tres);  
 
-        }
-        print "</section>";
-        print"</div>";
+        print "
+            <article class='col-2'>
+                <div class='card'>
+                    <div class='card-body'>
+                        <h5 class='card-subtitle mb-2 text-body-secondary'>Usuario: {$fila_usuario['nombre']}</h5>
+                        <p class='card-text'>Método de pago: {$fila_pago['metodo_pago']}</p>
+                        <p class='card-text'>Entrada al hotel: <br>  {$fila_reserva['fecha_entrada']}</p>
+                        <p class='card-text'>Salida del hotel: <br> {$fila_reserva['fecha_salida']}</p>
+                    </div>
+                </div>
+            </article>
+        ";
+    }
+
+    print "</section>";
+    print "</div>";
         include_once("../componentes/include/footer.php");
     ?>
 </section>

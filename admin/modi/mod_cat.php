@@ -9,7 +9,6 @@ include_once("../../componentes/conf/conf.php");
     <title>Crear - Admin</title>
     <link rel="stylesheet" href="../../asset/css/bootstrap.css">
     <link rel="stylesheet" href="../../asset/css/estilos.css">
-    <link rel="stylesheet" href="../../asset/css/estilos.css">
 </head>
 <body>
     <header>
@@ -38,27 +37,27 @@ include_once("../../componentes/conf/conf.php");
         $resultado = mysqli_query($con,$consulta);
     }
     ?>
-    <form action="mod_cat_ok.php" method="get">
+    <form action="mod_cat_ok.php" method="post" enctype="multipart/form-data">
         <?php
             while($fila = mysqli_fetch_array($resultado)){
                 print "
-                <section class='row abajo'>
-                    <article class='col-5 mover'>    
+                <section class='row'>
+                    <article class='col-5'>    
                         <input type=hidden name=id value=$fila[id_Habitacion] >    
                         <div>
-                            <label for='habitacion' class='form-label letra'>Tipo de habitación</label>
+                            <label for='tipo' class='form-label letra'>Tipo de habitación</label>
                             <input type=text name=tipo value=$fila[tipo] >
                         </div>
                         <div>
-                            <label for='habitacion' class='form-label letra'>Precio</label>
+                            <label for='precio' class='form-label letra'>Precio</label>
                             <input type=text name=precio value=$fila[precio] >
                         </div>
                         <div>
-                            <label for='habitacion' class='form-label letra'>Imagen de la habitación</label>
+                            <label for='media' class='form-label letra'>Imagen de la habitación</label>
                             <input id='media' name='media' type='file' class='form-control'>
                         </div>
                         <div>
-                            <label for='habitacion' class='form-label letra'>Estado de la habitación</label>
+                            <label for='estado' class='form-label letra'>Estado de la habitación</label>
                             <input type=text name=estado value=$fila[fk_Estado] >
                         </div>
                         <input type=submit value=Modificar class='btn btn-primary'> 

@@ -5,15 +5,18 @@ $id;
 $precio;
 $media;
 $estado;
-if (isset($_GET['tipo']) && isset($_GET['id']) && isset($_GET['precio']) && isset($_GET['estado']) && isset($_GET['media'])) {
-    $tipo = $_GET['tipo'];
-    $id = $_GET['id'];
-    $precio = $_GET['precio'];
-    $estado = $_GET['estado'];
-    $media = $_GET['media'];
+if (isset($_POST['tipo']) or isset($_POST['id']) or isset($_POST['precio']) or isset($_POST['estado']) or isset($_POST['media'])) {
+    $tipo = $_POST['tipo'];
+    $id = $_POST['id'];
+    $precio = $_POST['precio'];
+    $estado = $_POST['estado'];
+    
+    $media = time().".jpg";
+    $temporal = $_FILES['media']['tmp_name'];
+    move_uploaded_file($temporal,"../../img/$media");
 
     $consulta = "UPDATE habitacion SET tipo='$tipo', precio='$precio', fk_Estado='$estado',media ='$media'  WHERE id_Habitacion = '$id' ";
     mysqli_query($con,$consulta);
-    header("Location: ../index.php ");
+    header("Location: ../index.php");
 }
 ?>

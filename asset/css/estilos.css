@@ -4,15 +4,30 @@
 .mejor{
     padding-top: 10%;
 }
-body{
-   background-color: #1C1C1C;
-   overflow-x: hidden; 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    background-color: #1C1C1C;
+    margin: 0;
+    margin-bottom: 40px;
+    
+}
+.formuLogin{
+    padding: 0;
 }
 .color{
     background: linear-gradient(90deg, #002B5B, #1C1C1C);
 }
 .letra{
-    color: white;
+    color: white
 }
 .ajuste{
    margin-top: 15px;
@@ -37,9 +52,6 @@ caption{
     margin-top: 12.5%;
     margin-bottom: 12.5%;
 }
-.mover{
-    margin: auto;
-}
 .arreg{
     text-align: center;
 }
@@ -48,4 +60,21 @@ caption{
     height: auto;
     display: block;
     margin: auto;
+}
+.footerConte{
+    margin: 0;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.ajusteFormulario{
+    margin: auto;
+}
+.cambioColor:hover{
+    color: orange;
+}
+h1{
+    margin-right: 30px;
+}
+.moverEscondido{
+    margin-right: 20px;
 }
