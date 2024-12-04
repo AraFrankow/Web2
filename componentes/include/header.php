@@ -17,7 +17,7 @@
                 <a class="letra text-decoration-none" href="../index.php">
                     <h1 class="h2 cambioColor">Hotel</h1>
                 </a>
-                <div class="navbar-nav">
+                <ul class="navbar-nav">
                     <?php
                         require_once("../componentes/conf/conf.php");
                         $consulta = "SELECT * FROM habitacion";
@@ -40,7 +40,7 @@
                             ";
                         }
                     ?>
-                </div>
+                </ul>
                 <div class="ms-auto">
                     <a href="https://wa.me/" target="_blank" class="text-decoration-none letra cambioColor">Para más info sobre como son las habitaciones</a>
                 </div>

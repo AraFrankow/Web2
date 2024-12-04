@@ -1,9 +1,9 @@
 </main>
     <footer class="">
         <nav class="color">
-                <div class="container container-fluid ">
-                    <p class="letra footerConte">Arabela Frankow &copy;</p>
-                </div>
+            <div class="container container-fluid ">
+                <p class="letra footerConte">Arabela Frankow &copy;</p>
+            </div>
         </nav>
         
     </footer>

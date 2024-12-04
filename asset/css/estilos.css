@@ -48,10 +48,6 @@ caption{
     text-align: center;
     font-weight: bold;
 }
-.abajo{
-    margin-top: 12.5%;
-    margin-bottom: 12.5%;
-}
 .arreg{
     text-align: center;
 }
@@ -70,11 +66,20 @@ caption{
     margin: auto;
 }
 .cambioColor:hover{
-    color: orange;
+    color: #D96D39;
 }
 h1{
     margin-right: 30px;
 }
 .moverEscondido{
     margin-right: 20px;
+}
+.moverInput{
+    margin-bottom: 10px;
+}
+.mainAdmin{
+    margin: 125px;
+}
+.alinearAdmin{
+    margin: auto;
 }

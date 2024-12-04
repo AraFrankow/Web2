@@ -12,21 +12,21 @@ if(!$_SESSION['id_Usuario']){
     <form action="alta/alta.php" method="post" enctype="multipart/form-data" class="container p-4 border rounded shadow-lg ajuste">
         <div class="nav-item">
             <label for="entrada" class="form-label letra">Llegada al hotel</label>
-            <input id="entrada" name="entrada" type="date" class="form-control">
+            <input id="entrada" name="entrada" type="date" class="form-control moverInput">
         </div>
         <div class="nav-item">
             <label for="salida" class="form-label letra">Salida del hotel</label>
-            <input id="salida" name="salida" type="date" class="form-control">
+            <input id="salida" name="salida" type="date" class="form-control moverInput">
         </div>
         <?php
             $consulta = "SELECT * FROM `habitacion` ";
             $resultado = mysqli_query($con,$consulta);
-            print "<div class='mb-3'>";
+            print "<div class='moverInput'>";
             print "<label for='metodo' class='form-label letra'>Habitación</label>";
             print "<select id=habitacion name=habitacion class='form-control'>";
             while($habitacion = mysqli_fetch_array($resultado)){
                 print "
-                    <option value=$habitacion[id_Habitacion] >$habitacion[tipo]</option>
+                    <option value=$habitacion[id_Habitacion] class='moverInput'>$habitacion[tipo]</option>
                 ";
             }
             print "</select>";
@@ -34,7 +34,7 @@ if(!$_SESSION['id_Usuario']){
 
             $consulta_dos = "SELECT * FROM metodo";
             $resultado_dos = mysqli_query($con,$consulta_dos);
-            print "<div class='mb-3'>";
+            print "<div class='moverInput'>";
             print "<label for='metodo' class='form-label letra'>Método de pago</label>";
             print "<select id=metodo name=metodo class='form-control'>";
             while($metodo = mysqli_fetch_array($resultado_dos)){
@@ -54,9 +54,6 @@ if(!$_SESSION['id_Usuario']){
     <?php
     $consulta_reservas = "SELECT * FROM reservas";
     $resultado_reservas = mysqli_query($con, $consulta_reservas);
-    $consulta_habitacion = "SELECT * FROM habitacion";
-    $resultado_habitacion = mysqli_query($con, $consulta_habitacion);
-    $fila_habitacion = mysqli_fetch_array($resultado_habitacion);
 
     print "<div class='container'>";
     print "<section class='row'>";
@@ -64,18 +61,13 @@ if(!$_SESSION['id_Usuario']){
     while ($fila_reserva = mysqli_fetch_array($resultado_reservas)) {
         $consulta_usuario = "SELECT * FROM usuario WHERE `id_Usuario` = {$fila_reserva['fk_Usuario']}";
         $resultado_usuario = mysqli_query($con, $consulta_usuario);
-        $fila_usuario = mysqli_fetch_array($resultado_usuario);
-
-        $consulta_tres = "SELECT * FROM metodo WHERE `id_Metodo` = {$fila_habitacion['tipo']}";
-        $resultado_tres =  mysqli_query($con,$consulta_tres);
-        $fila_pago = mysqli_fetch_array($resultado_tres);  
+        $fila_usuario = mysqli_fetch_array($resultado_usuario);  
 
         print "
-            <article class='col-2'>
+            <article class='col-2 mb-2'>
                 <div class='card'>
                     <div class='card-body'>
                         <h5 class='card-subtitle mb-2 text-body-secondary'>Usuario: {$fila_usuario['nombre']}</h5>
-                        <p class='card-text'>Método de pago: {$fila_pago['metodo_pago']}</p>
                         <p class='card-text'>Entrada al hotel: <br>  {$fila_reserva['fecha_entrada']}</p>
                         <p class='card-text'>Salida del hotel: <br> {$fila_reserva['fecha_salida']}</p>
                     </div>

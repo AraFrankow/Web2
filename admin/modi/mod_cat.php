@@ -11,24 +11,21 @@ include_once("../../componentes/conf/conf.php");
     <link rel="stylesheet" href="../../asset/css/estilos.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg color">
-            <div class="container-fluid">    
-                <h1><a class="navbar-brand letra" href="../index.php" >Crear - Admin</a></h1>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class='navbar-nav'>
-                        <li class='nav-item' >
-                            <a href='../componentes/security/logout.php' class='nav-link letra' >Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
+    <header class="color">
+        <nav class="navbar navbar-expand-lg container px-3">
+            <div class="d-flex w-100 justify-content-between align-items-center">    
+                <a class="letra text-decoration-none" href="../index.php">
+                    <h1 class="h2 cambioColor">Admin</h1>
+                </a>
+                <ul class='navbar-nav'>
+                    <li class='nav-item' >
+                        <a href='../../componentes/security/logout.php' class='text-decoration-none letra cambioColor' >Cerrar Sesión</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
-<main>
+<main class="mainAdmin">
     <?php
     $id;
     if (isset($_GET['id'])) {
@@ -41,38 +38,40 @@ include_once("../../componentes/conf/conf.php");
         <?php
             while($fila = mysqli_fetch_array($resultado)){
                 print "
-                <section class='row'>
-                    <article class='col-5'>    
-                        <input type=hidden name=id value=$fila[id_Habitacion] >    
-                        <div>
-                            <label for='tipo' class='form-label letra'>Tipo de habitación</label>
-                            <input type=text name=tipo value=$fila[tipo] >
-                        </div>
-                        <div>
-                            <label for='precio' class='form-label letra'>Precio</label>
-                            <input type=text name=precio value=$fila[precio] >
-                        </div>
-                        <div>
-                            <label for='media' class='form-label letra'>Imagen de la habitación</label>
-                            <input id='media' name='media' type='file' class='form-control'>
-                        </div>
-                        <div>
-                            <label for='estado' class='form-label letra'>Estado de la habitación</label>
-                            <input type=text name=estado value=$fila[fk_Estado] >
-                        </div>
-                        <input type=submit value=Modificar class='btn btn-primary'> 
-                    </article>
-                </section>
+                <div class='container'>
+                    <section class='row justify-content-center'>
+                        <article class='col-6'>    
+                            <input type=hidden name=id value=$fila[id_Habitacion] class='form-control'>    
+                            <div>
+                                <label for='tipo' class='form-label letra'>Tipo de habitación</label>
+                                <input type=text name=tipo value=$fila[tipo] class='form-control moverInput' >
+                            </div>
+                            <div>
+                                <label for='precio' class='form-label letra'>Precio</label>
+                                <input type=text name=precio value=$fila[precio] class='form-control moverInput'>
+                            </div>
+                            <div>
+                                <label for='media' class='form-label letra'>Imagen de la habitación</label>
+                                <input id='media' name='media' type='file' class='form-control moverInput'>
+                            </div>
+                            <div>
+                                <label for='estado' class='form-label letra'>Estado de la habitación</label>
+                                <input type=text name=estado value=$fila[fk_Estado] class='form-control moverInput'>
+                            </div>
+                            <input type=submit value=Modificar class='btn btn-primary'> 
+                        </article>
+                    </section>
+                </div>
                 ";
             }
         ?>
     </form>
 </main>
 
-<footer>
-        <nav class="navbar fixed-bottom color">
-            <div class="container-fluid">
-                <p class="letra pt-3">Arabela Frankow &copy;</p>
+    <footer>
+        <nav class="color">
+            <div class="container container-fluid ">
+                <p class="letra footerConte">Arabela Frankow &copy;</p>
             </div>
         </nav>
         
